@@ -4,19 +4,13 @@
 int main(){
 
     AllInit();
-
+    int index = 0;
     U64 playBitBoard = 0ULL;
 
-    playBitBoard |= (1ULL << SQ64(D2));
-    playBitBoard |= (1ULL << SQ64(D3));
-    playBitBoard |= (1ULL << SQ64(D4));
+    SETBIT(playBitBoard,61);
+    PrintBitBoard(playBitBoard);
 
-    int sq64 = 0;
-    while(playBitBoard){
-        sq64 = POP(&playBitBoard);
-        printf("pop:%d\n",sq64);
-        PrintBitBoard(playBitBoard);
-    }
-
+    CLRBIT(playBitBoard,61);
+    PrintBitBoard(playBitBoard);
     return 0;
 }
