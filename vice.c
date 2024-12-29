@@ -6,17 +6,17 @@ int main(){
     AllInit();
 
     U64 playBitBoard = 0ULL;
-    printf("\nStart:\n");
-    PrintBitBoard(playBitBoard);
 
     playBitBoard |= (1ULL << SQ64(D2));
+    playBitBoard |= (1ULL << SQ64(D3));
+    playBitBoard |= (1ULL << SQ64(D4));
 
-    printf("\nSet D2:\n");
-    PrintBitBoard(playBitBoard);
-
-    playBitBoard |= (1ULL << SQ64(G2));
-    printf("\nSet G2:\n");
-    PrintBitBoard(playBitBoard);
+    int sq64 = 0;
+    while(playBitBoard){
+        sq64 = POP(&playBitBoard);
+        printf("pop:%d\n",sq64);
+        PrintBitBoard(playBitBoard);
+    }
 
     return 0;
 }
